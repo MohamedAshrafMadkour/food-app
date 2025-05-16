@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/utils/app_images.dart';
 import 'package:food_app/core/utils/navigation.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/widgets/custom_button.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/widgets/custom_text_form_field.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/widgets/custom_button.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/widgets/custom_text_form_field.dart';
 import 'package:go_router/go_router.dart';
 
 class RegisterViewBody extends StatelessWidget {

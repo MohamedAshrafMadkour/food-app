@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:food_app/core/utils/app_images.dart';
 import 'package:food_app/core/utils/styles.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/widgets/custom_enter_container_row.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/widgets/custom_enter_container_row.dart';
 
 class CustomLoginAndRegisterViewBody extends StatelessWidget {
   const CustomLoginAndRegisterViewBody({super.key});

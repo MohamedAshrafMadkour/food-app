@@ -1,9 +1,9 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/complete_register_view.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/login_and_register_view.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/login_view.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/register_view.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/complete_register_view.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/login_and_register_view.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/login_view.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/register_view.dart';
 import 'package:food_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -63,7 +63,7 @@ abstract class RouterNavigation {
         return SharedAxisTransition(
           animation: animation,
           secondaryAnimation: secondaryAnimation,
-          transitionType: SharedAxisTransitionType.vertical,
+          transitionType: SharedAxisTransitionType.horizontal,
           child: child,
         );
       },

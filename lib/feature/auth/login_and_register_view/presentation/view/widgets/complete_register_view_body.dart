@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/utils/app_images.dart';
 import 'package:food_app/core/utils/styles.dart';
-import 'package:food_app/feature/auth/login_and_register_view/view/widgets/custom_button.dart';
+import 'package:food_app/feature/auth/login_and_register_view/presentation/view/widgets/custom_button.dart';
 
 class CompleteRegisterViewBody extends StatelessWidget {
   const CompleteRegisterViewBody({super.key});

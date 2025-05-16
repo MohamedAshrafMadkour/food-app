@@ -8,8 +8,9 @@ class CustomTextFormField extends StatelessWidget {
     required this.icon,
     required this.hintText,
     this.sufIcon,
+    this.hintStyle,
   });
-
+  final TextStyle? hintStyle;
   final IconData icon;
   final String hintText;
   final IconData? sufIcon;
@@ -21,7 +22,8 @@ class CustomTextFormField extends StatelessWidget {
         fillColor: const Color(0xffF3F3F3),
         filled: true,
         hintText: hintText,
-        hintStyle: Styles.textRegular25.copyWith(color: Colors.grey[500]),
+        hintStyle:
+            hintStyle ?? Styles.textRegular25.copyWith(color: Colors.grey[500]),
         prefixIcon: Icon(icon, size: 34, color: kAuthColor),
         suffixIcon: Icon(sufIcon, size: 34, color: kAuthColor),
         enabledBorder: outlineInputBorder(),
