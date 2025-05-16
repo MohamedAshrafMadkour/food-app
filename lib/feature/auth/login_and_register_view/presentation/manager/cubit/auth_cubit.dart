@@ -10,15 +10,8 @@ class AuthCubit extends Cubit<AuthState> {
     required String name,
     required String email,
     required String password,
-    required String confirmPassword,
   }) async {
     emit(RegisterLoading());
-    if (confirmPassword != password) {
-      emit(
-        RegisterFailure(errorMessage: 'your confirm password is not correct'),
-      );
-      return;
-    }
     try {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);

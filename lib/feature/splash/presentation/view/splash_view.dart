@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/utils/styles.dart';
 import 'package:food_app/feature/splash/presentation/view/widget/custom_splash_body.dart';
 import 'package:go_router/go_router.dart';
 import 'package:food_app/core/utils/navigation.dart';

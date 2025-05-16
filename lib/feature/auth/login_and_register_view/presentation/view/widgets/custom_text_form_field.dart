@@ -9,15 +9,23 @@ class CustomTextFormField extends StatelessWidget {
     required this.hintText,
     this.sufIcon,
     this.hintStyle,
+    this.onChanged,
   });
   final TextStyle? hintStyle;
   final IconData icon;
   final String hintText;
   final IconData? sufIcon;
-
+  final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (value) {
+        if (value!.isEmpty) {
+          return 'Empty Field';
+        }
+        return null;
+      },
+      onChanged: onChanged,
       decoration: InputDecoration(
         fillColor: const Color(0xffF3F3F3),
         filled: true,
