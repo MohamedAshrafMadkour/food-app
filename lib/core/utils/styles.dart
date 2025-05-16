@@ -55,7 +55,7 @@ abstract class Styles {
   static const TextStyle textRegular25 = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w400,
-    color: Color(0xffFFFFFF),
+    color: Color(0xff666161),
   );
   static const TextStyle textRegular23 = TextStyle(
     fontSize: 23,
