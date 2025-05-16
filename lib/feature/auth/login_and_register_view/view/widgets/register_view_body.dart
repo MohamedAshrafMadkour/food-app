@@ -11,14 +11,14 @@ class RegisterViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Center(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(Assets.imagesLogin1),
-              const SizedBox(height: 60),
+              const SizedBox(height: 70),
               const CustomTextFormField(icon: Icons.email, hintText: 'Email'),
               const SizedBox(height: 20),
               const CustomTextFormField(
@@ -31,7 +31,7 @@ class RegisterViewBody extends StatelessWidget {
                 hintText: 'Password',
                 sufIcon: Icons.visibility,
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 40),
               CustomButton(
                 onPressed: () {
                   GoRouter.of(
