@@ -26,7 +26,12 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
     color: Color(0xff22C7A9),
   );
-
+  static const TextStyle textBold28 = TextStyle(
+    fontSize: 28,
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 2,
+  );
   static const TextStyle textSemiBold22 = TextStyle(
     fontSize: 22,
     fontWeight: FontWeight.w600,
