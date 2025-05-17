@@ -1,15 +1,16 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/complete_register_view.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/login_and_register_view.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/login_view.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/register_view.dart';
+import 'package:food_app/feature/home/presentation/view/home_view.dart';
 import 'package:food_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class RouterNavigation {
   static const kSplashView = '/';
   static const kRegisterView = '/registerView';
+  static const kHomeView = '/homeView';
   static const kCompleteRegisterView = '/completeRegisterView';
   static const kLoginView = '/loginView';
   static const kLoginAndRegisterView = '/loginAndRegisterView';
@@ -37,6 +38,12 @@ abstract class RouterNavigation {
         },
       ),
       GoRoute(
+        path: kHomeView,
+        pageBuilder: (context, state) {
+          return customTransitionAnimation(state, child: const HomeView());
+        },
+      ),
+      GoRoute(
         path: kLoginView,
         pageBuilder: (context, state) {
           return customTransitionAnimation(state, child: const LoginView());
@@ -60,11 +67,12 @@ abstract class RouterNavigation {
       reverseTransitionDuration: const Duration(milliseconds: 400),
       child: child,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        return SharedAxisTransition(
-          animation: animation,
-          secondaryAnimation: secondaryAnimation,
-          transitionType: SharedAxisTransitionType.horizontal,
-          child: child,
+        return FadeTransition(
+          opacity: animation,
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.9, end: 1).animate(animation),
+            child: child,
+          ),
         );
       },
     );

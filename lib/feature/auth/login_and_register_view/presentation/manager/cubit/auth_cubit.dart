@@ -11,23 +11,36 @@ class AuthCubit extends Cubit<AuthState> {
     required String email,
     required String password,
   }) async {
+    final bool hasLetters = password.contains(RegExp(r'[A-Za-z]'));
+    final bool hasNumbers = password.contains(RegExp(r'\d'));
+    if (password.length < 8) {
+      emit(
+        RegisterFailure(
+          errorMessage: 'Password must be at least 8 characters.',
+        ),
+      );
+      return;
+    }
+
+    if (!hasLetters || !hasNumbers) {
+      emit(
+        RegisterFailure(
+          errorMessage: 'Password must contain both letters and numbers.',
+        ),
+      );
+      return;
+    }
+
     emit(RegisterLoading());
+
     try {
       final credential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       await credential.user!.updateDisplayName(name);
       emit(RegisterSuccess());
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        emit(
-          RegisterFailure(errorMessage: 'The password provided is too weak.'),
-        );
-      } else if (e.code == 'email-already-in-use') {
-        emit(
-          RegisterFailure(
-            errorMessage: 'The account already exists for that email.',
-          ),
-        );
+      if (e.code == 'email-already-in-use') {
+        emit(RegisterFailure(errorMessage: 'The account already exists.'));
       } else {
         emit(
           RegisterFailure(
@@ -51,10 +64,12 @@ class AuthCubit extends Cubit<AuthState> {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         emit(LoginFailure(errorMessage: 'No user found for that email.'));
-      } else if (e.code == 'in_valid password') {
+      } else if (e.code == 'wrong-password') {
         emit(
           LoginFailure(errorMessage: 'Wrong password provided for that user.'),
         );
+      } else if (e.code == 'user-disabled') {
+        emit(LoginFailure(errorMessage: 'User account has been disabled.'));
       } else {
         emit(
           LoginFailure(errorMessage: e.message ?? 'An unknown error occurred.'),

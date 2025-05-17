@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_app/core/utils/app_images.dart';
 import 'package:food_app/core/utils/styles.dart';
-import 'package:food_app/feature/auth/login_and_register_view/presentation/manager/cubit/auth_cubit.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/widgets/custom_enter_container_row.dart';
 
 class CustomLoginAndRegisterViewBody extends StatelessWidget {
@@ -28,10 +26,7 @@ class CustomLoginAndRegisterViewBody extends StatelessWidget {
           const Text('Order your favorite Meals', style: Styles.textLight14),
           const Text('Here!', style: Styles.textLight14),
           SizedBox(height: size.height * .17),
-          BlocProvider(
-            create: (context) => AuthCubit(),
-            child: const CustomEnterContainerRow(),
-          ),
+          const CustomEnterContainerRow(),
           SizedBox(height: size.height * .14),
         ],
       ),
