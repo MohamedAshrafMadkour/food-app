@@ -6,6 +6,11 @@ abstract class Styles {
     fontWeight: FontWeight.w800,
     color: Color(0xffFFFFFF),
   );
+  static const TextStyle textBold32 = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.bold,
+    color: Color(0xffFFFFFF),
+  );
   static const TextStyle textLight13 = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w300,
@@ -57,6 +62,11 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
     color: Color(0xff454745),
   );
+  static const TextStyle textSemiBold16 = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: Color(0xff3F3D56),
+  );
   static const TextStyle textRegular25 = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w400,
@@ -67,6 +77,11 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     color: Color(0xffFFFFFF),
   );
+  static const TextStyle textRegular14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: Color(0xff888888),
+  );
   static const TextStyle textBold30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w700,
@@ -76,5 +91,10 @@ abstract class Styles {
     fontSize: 15,
     fontWeight: FontWeight.w500,
     color: Color(0xff666161),
+  );
+  static const TextStyle textMedium18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Color(0xff3F3D56),
   );
 }

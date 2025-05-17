@@ -3,7 +3,11 @@ import 'package:food_app/feature/auth/login_and_register_view/presentation/view/
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/login_and_register_view.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/login_view.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/view/register_view.dart';
+import 'package:food_app/feature/home/presentation/view/details_view.dart';
 import 'package:food_app/feature/home/presentation/view/home_view.dart';
+import 'package:food_app/feature/pop_up/presentation/view/breakfast_view.dart';
+import 'package:food_app/feature/pop_up/presentation/view/dinner_view.dart';
+import 'package:food_app/feature/pop_up/presentation/view/launch_view.dart';
 import 'package:food_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,8 +15,12 @@ abstract class RouterNavigation {
   static const kSplashView = '/';
   static const kRegisterView = '/registerView';
   static const kHomeView = '/homeView';
+  static const kDetailsView = '/detailsView';
   static const kCompleteRegisterView = '/completeRegisterView';
   static const kLoginView = '/loginView';
+  static const kBreakfastView = '/BreakfastView';
+  static const kLaunchView = '/launchView';
+  static const kDinnerView = '/DinnerView';
   static const kLoginAndRegisterView = '/loginAndRegisterView';
   static final GoRouter router = GoRouter(
     routes: <RouteBase>[
@@ -20,6 +28,36 @@ abstract class RouterNavigation {
         path: kSplashView,
         builder: (BuildContext context, GoRouterState state) {
           return const SplashView();
+        },
+      ),
+      GoRoute(
+        path: kSplashView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SplashView();
+        },
+      ),
+      GoRoute(
+        path: kDetailsView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const DetailsView();
+        },
+      ),
+      GoRoute(
+        path: kBreakfastView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const BreakfastView();
+        },
+      ),
+      GoRoute(
+        path: kLaunchView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const LaunchView();
+        },
+      ),
+      GoRoute(
+        path: kDinnerView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const DinnerView();
         },
       ),
       GoRoute(

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/core/constant/color_constant.dart';
-import 'package:food_app/core/utils/styles.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/custom_home_view_body_header.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/custom_home_view_header_row.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/custom_sell_button.dart';
