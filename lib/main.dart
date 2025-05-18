@@ -1,11 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_app/core/utils/locator.dart';
 import 'package:food_app/core/utils/navigation.dart';
+import 'package:food_app/core/utils/observe.dart';
 import 'package:food_app/feature/auth/login_and_register_view/presentation/manager/cubit/auth_cubit.dart';
 import 'package:food_app/firebase_options.dart';
 
 void main() async {
+  setupServiceLocator();
+  Bloc.observer = SimpleBlocObserve();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const FoodApp());

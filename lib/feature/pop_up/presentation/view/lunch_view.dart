@@ -10,7 +10,7 @@ class LaunchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kAuthColor,
-      appBar: customAppBar(context, meal: 'launch'),
+      appBar: customAppBar(context, meal: 'lunch'),
       body: const MealBody(),
     );
   }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/widget/custom_icon.dart';
+import 'package:food_app/feature/home/data/models/food_results.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/details_view_body.dart';
 import 'package:go_router/go_router.dart';
 
 class DetailsView extends StatelessWidget {
-  const DetailsView({super.key});
-
+  const DetailsView({super.key, required this.food});
+  final FoodResults food;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +30,7 @@ class DetailsView extends StatelessWidget {
           ),
         ],
       ),
-      body: const DetailsViewBody(),
+      body: DetailsViewBody(food: food),
     );
   }
 }
