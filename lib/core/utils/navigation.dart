@@ -8,6 +8,7 @@ import 'package:food_app/feature/home/presentation/view/home_view.dart';
 import 'package:food_app/feature/pop_up/presentation/view/breakfast_view.dart';
 import 'package:food_app/feature/pop_up/presentation/view/dinner_view.dart';
 import 'package:food_app/feature/pop_up/presentation/view/launch_view.dart';
+import 'package:food_app/feature/search/presentation/search_view.dart';
 import 'package:food_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +16,7 @@ abstract class RouterNavigation {
   static const kSplashView = '/';
   static const kRegisterView = '/registerView';
   static const kHomeView = '/homeView';
+  static const kSearchView = '/searchView';
   static const kDetailsView = '/detailsView';
   static const kCompleteRegisterView = '/completeRegisterView';
   static const kLoginView = '/loginView';
@@ -34,6 +36,12 @@ abstract class RouterNavigation {
         path: kSplashView,
         builder: (BuildContext context, GoRouterState state) {
           return const SplashView();
+        },
+      ),
+      GoRoute(
+        path: kSearchView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SearchView();
         },
       ),
       GoRoute(

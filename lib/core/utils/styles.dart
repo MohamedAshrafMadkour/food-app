@@ -77,6 +77,16 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     color: Color(0xffFFFFFF),
   );
+  static const TextStyle textRegular18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: Color(0xffA75A39),
+  );
+  static const TextStyle textRegular13 = TextStyle(
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    color: Color(0xff888888),
+  );
   static const TextStyle textRegular14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,

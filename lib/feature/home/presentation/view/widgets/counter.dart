@@ -28,7 +28,7 @@ class _CustomCounterState extends State<CustomCounter> {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Text(
             numOfProduct.toString().padLeft(2, '0'),
-            style: TextStyle(fontSize: 20),
+            style: const TextStyle(fontSize: 20),
           ),
         ),
         IconButtonWidget(
