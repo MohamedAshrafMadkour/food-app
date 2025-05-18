@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/widget/custom_icon.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/details_view_body.dart';
+import 'package:go_router/go_router.dart';
 
 class DetailsView extends StatelessWidget {
   const DetailsView({super.key});
@@ -13,7 +14,13 @@ class DetailsView extends StatelessWidget {
         scrolledUnderElevation: 0,
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: const CustomIcon(icon: Icons.arrow_back_ios, size: 24),
+        leading: CustomIcon(
+          icon: Icons.arrow_back_ios,
+          size: 24,
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
+        ),
         actions: [
           Transform(
             alignment: Alignment.center,

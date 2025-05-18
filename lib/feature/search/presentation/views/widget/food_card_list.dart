@@ -9,7 +9,7 @@ class FoodCardList extends StatelessWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) => const FoodCard(),
-        childCount: 5,
+        childCount: 10,
       ),
     );
   }
