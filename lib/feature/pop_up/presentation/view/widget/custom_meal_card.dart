@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/utils/styles.dart';
-import 'package:food_app/feature/search/data/model/meals_food.dart';
-import 'package:food_app/feature/search/presentation/views/widget/custom_food_cached_image.dart';
+import 'package:food_app/feature/pop_up/data/models/tasty_api_model/tasty_api_model.dart';
+import 'package:food_app/feature/search/presentation/views/widget/custom_meal_cached_image.dart';
 
-class CustomFoodCardRow extends StatelessWidget {
-  const CustomFoodCardRow({super.key, required this.meal});
-  final MealsFood meal;
+class CustomMealCardRow extends StatelessWidget {
+  const CustomMealCardRow({super.key, required this.meal});
+  final TastyApiModel meal;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,21 +14,21 @@ class CustomFoodCardRow extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(meal.strMeal ?? " ", style: Styles.textRegular18),
+              Text(meal.name ?? " ", style: Styles.textRegular18),
               const SizedBox(height: 4),
               Text(
-                meal.strInstructions ?? " ",
+                meal.description ?? " ",
                 style: Styles.textRegular13,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 8),
-              Text(meal.strArea ?? " ", style: Styles.textSemiBold15),
+              Text(meal.country ?? " ", style: Styles.textSemiBold15),
             ],
           ),
         ),
         const SizedBox(width: 12),
-        CustomFoodCachedImage(meal: meal),
+        CustomMealCachedImage(meal: meal),
       ],
     );
   }

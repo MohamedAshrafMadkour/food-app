@@ -10,9 +10,16 @@ import 'package:food_app/feature/home/data/repo/home_repo_impl.dart';
 import 'package:food_app/feature/home/presentation/view/details_view.dart';
 import 'package:food_app/feature/home/presentation/view/home_view.dart';
 import 'package:food_app/feature/home/presentation/view/manager/cubit/main_food_cubit.dart';
+import 'package:food_app/feature/pop_up/data/models/tasty_api_model/tasty_api_model.dart';
+import 'package:food_app/feature/pop_up/data/repo/pop_up_impl.dart';
+import 'package:food_app/feature/pop_up/presentation/manager/cubit/meals_food_cubit.dart';
 import 'package:food_app/feature/pop_up/presentation/view/breakfast_view.dart';
 import 'package:food_app/feature/pop_up/presentation/view/dinner_view.dart';
 import 'package:food_app/feature/pop_up/presentation/view/lunch_view.dart';
+import 'package:food_app/feature/pop_up/presentation/view/meal_details.dart';
+import 'package:food_app/feature/search/data/repo/search_repo_impl.dart';
+import 'package:food_app/feature/search/presentation/manager/country_food/country_food_cubit.dart';
+import 'package:food_app/feature/search/presentation/manager/food_type_cubit/food_type_cubit.dart';
 import 'package:food_app/feature/search/presentation/search_view.dart';
 import 'package:food_app/feature/splash/presentation/view/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -23,6 +30,7 @@ abstract class RouterNavigation {
   static const kHomeView = '/homeView';
   static const kSearchView = '/searchView';
   static const kDetailsView = '/detailsView';
+  static const kMealDetailsView = '/mealDetailsView';
   static const kCompleteRegisterView = '/completeRegisterView';
   static const kLoginView = '/loginView';
   static const kBreakfastView = '/BreakfastView';
@@ -37,16 +45,21 @@ abstract class RouterNavigation {
           return const SplashView();
         },
       ),
-      GoRoute(
-        path: kSplashView,
-        builder: (BuildContext context, GoRouterState state) {
-          return const SplashView();
-        },
-      ),
+
       GoRoute(
         path: kSearchView,
         builder: (BuildContext context, GoRouterState state) {
-          return const SearchView();
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => FoodTypeCubit(getIt<SearchRepoImpl>()),
+              ),
+              BlocProvider(
+                create: (context) => CountryFoodCubit(getIt<SearchRepoImpl>()),
+              ),
+            ],
+            child: const SearchView(),
+          );
         },
       ),
       GoRoute(
@@ -56,21 +69,45 @@ abstract class RouterNavigation {
         },
       ),
       GoRoute(
+        path: kMealDetailsView,
+        builder: (BuildContext context, GoRouterState state) {
+          return MealDetailsView(food: state.extra as TastyApiModel);
+        },
+      ),
+      GoRoute(
         path: kBreakfastView,
         builder: (BuildContext context, GoRouterState state) {
-          return const BreakfastView();
+          return BlocProvider(
+            create:
+                (context) =>
+                    MealsFoodCubit(getIt<PopUpRepoImpl>())
+                      ..getMealsMethod(meals: 'breakfast'),
+            child: const BreakfastView(),
+          );
         },
       ),
       GoRoute(
         path: kLaunchView,
         builder: (BuildContext context, GoRouterState state) {
-          return const LaunchView();
+          return BlocProvider(
+            create:
+                (context) =>
+                    MealsFoodCubit(getIt<PopUpRepoImpl>())
+                      ..getMealsMethod(meals: 'lunch'),
+            child: const LaunchView(),
+          );
         },
       ),
       GoRoute(
         path: kDinnerView,
         builder: (BuildContext context, GoRouterState state) {
-          return const DinnerView();
+          return BlocProvider(
+            create:
+                (context) =>
+                    MealsFoodCubit(getIt<PopUpRepoImpl>())
+                      ..getMealsMethod(meals: 'dinner'),
+            child: const DinnerView(),
+          );
         },
       ),
       GoRoute(

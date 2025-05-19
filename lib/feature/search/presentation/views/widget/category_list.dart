@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_app/feature/search/presentation/manager/food_type_cubit/food_type_cubit.dart';
 import 'package:food_app/feature/search/presentation/views/widget/category.dart';
 
-class CategoryList extends StatefulWidget {
-  const CategoryList({super.key});
-
-  @override
-  State<CategoryList> createState() => _CategoryListState();
-}
-
-class _CategoryListState extends State<CategoryList> {
-  int currentIndex = 0;
-  List<String> meals = ['Pizza', 'Veggies', 'Chicken', 'meat'];
+class CategoryList extends StatelessWidget {
+  const CategoryList({
+    super.key,
+    required this.meals,
+    required this.currentIndex,
+    required this.onCategorySelected,
+  });
+  final List<String> meals;
+  final int currentIndex;
+  final void Function(int) onCategorySelected;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,9 +26,12 @@ class _CategoryListState extends State<CategoryList> {
             child: Category(
               meal: meals[index],
               onTap: () {
-                setState(() {
-                  currentIndex = index;
-                });
+                if (currentIndex != index) {
+                  onCategorySelected(index);
+                  BlocProvider.of<FoodTypeCubit>(
+                    context,
+                  ).getFoodTypeCubitMethod(type: meals[index]);
+                }
               },
               isActive: currentIndex == index,
             ),

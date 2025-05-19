@@ -12,6 +12,8 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kAuthColor,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: kAuthColor,
         elevation: 0,

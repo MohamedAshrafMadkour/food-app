@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_app/feature/search/presentation/manager/country_food/country_food_cubit.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -30,13 +32,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
-      // onSubmitted: (query) {
-      //   if (query.trim().isNotEmpty) {
-      //     context.read<GetFurnitureSearchCubit>().getFurnitureSearch(
-      //       category: query.trim(),
-      //     );
-      //   }
-      // },
+      onSubmitted: (query) {
+        if (query.trim().isNotEmpty) {
+          context.read<CountryFoodCubit>().getCountryFoodCubitMethod(
+            country: query.trim(),
+          );
+        }
+      },
       decoration: InputDecoration(
         fillColor: const Color.fromRGBO(255, 249, 243, .3),
         filled: true,
@@ -51,25 +53,27 @@ class _CustomTextFieldState extends State<CustomTextField> {
             controller.text.isNotEmpty
                 ? IconButton(
                   onPressed: () {
-                    //   setState(() {
-                    //     controller.clear();
-                    //   });
-                    //   context.read<GetFurnitureSearchCubit>().emptyRes();
+                    setState(() {
+                      controller.clear();
+                    });
+                    context.read<CountryFoodCubit>().remove();
                   },
                   icon: const Icon(Icons.clear, color: Color(0xffFFF9F3)),
                 )
                 : IconButton(
                   onPressed: () {
-                    // if (controller.text.trim().isNotEmpty) {
-                    //   setState(() {});
-                    //   context
-                    //       .read<GetFurnitureSearchCubit>()
-                    //       .getFurnitureSearch(category: controller.text.trim());
-                    // }
+                    if (controller.text.trim().isNotEmpty) {
+                      setState(() {});
+                      context
+                          .read<CountryFoodCubit>()
+                          .getCountryFoodCubitMethod(
+                            country: controller.text.trim(),
+                          );
+                    }
                   },
                   icon: const Icon(Icons.search, color: Color(0xffFFF9F3)),
                 ),
-        hintText: 'Search',
+        hintText: 'Enter Nationality',
         hintStyle: const TextStyle(color: Color(0xffFFF9F3)),
         border: customOutlineInputBorder(color: Colors.black),
         focusedBorder: customOutlineInputBorder(

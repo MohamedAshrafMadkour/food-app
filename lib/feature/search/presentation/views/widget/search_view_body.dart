@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/feature/search/presentation/views/widget/category_list.dart';
 import 'package:food_app/feature/search/presentation/views/widget/custom_text_field.dart';
-import 'package:food_app/feature/search/presentation/views/widget/food_card_list.dart';
+import 'package:food_app/feature/search/presentation/views/widget/search_item_grid.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -14,15 +13,8 @@ class SearchViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 20),
           CustomTextField(),
-          SizedBox(height: 30),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(child: CategoryList()),
-                FoodCardList(),
-              ],
-            ),
-          ),
+          SizedBox(height: 20),
+          Expanded(child: SearchItemGrid()),
         ],
       ),
     );

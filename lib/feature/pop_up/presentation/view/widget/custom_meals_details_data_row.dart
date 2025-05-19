@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/core/utils/styles.dart';
 import 'package:food_app/feature/home/data/models/food_results.dart';
-import 'package:food_app/feature/home/presentation/view/widgets/custom_details_price_conatiner.dart';
 
-class CustomDetailsDataRow extends StatelessWidget {
-  const CustomDetailsDataRow({super.key, required this.food});
+class CustomMealDetailsDataRow extends StatelessWidget {
+  const CustomMealDetailsDataRow({super.key, required this.food});
   final FoodResults food;
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,6 @@ class CustomDetailsDataRow extends StatelessWidget {
             ),
           ),
         ),
-        CustomFoodItemPriceContainer(food: food),
       ],
     );
   }

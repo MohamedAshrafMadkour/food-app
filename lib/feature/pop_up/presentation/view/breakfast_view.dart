@@ -11,7 +11,7 @@ class BreakfastView extends StatelessWidget {
     return Scaffold(
       backgroundColor: kAuthColor,
       appBar: customAppBar(context, meal: 'breakfast'),
-      body: const MealBody(),
+      body: const MealBody(meal: 'breakfast'),
     );
   }
 }

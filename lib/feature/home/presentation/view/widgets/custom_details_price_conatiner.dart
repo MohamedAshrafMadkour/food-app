@@ -3,8 +3,8 @@ import 'package:food_app/core/constant/color_constant.dart';
 import 'package:food_app/core/utils/styles.dart';
 import 'package:food_app/feature/home/data/models/food_results.dart';
 
-class CustomDetailsPriceContainer extends StatelessWidget {
-  const CustomDetailsPriceContainer({super.key, required this.food});
+class CustomFoodItemPriceContainer extends StatelessWidget {
+  const CustomFoodItemPriceContainer({super.key, required this.food});
   final FoodResults food;
   @override
   Widget build(BuildContext context) {

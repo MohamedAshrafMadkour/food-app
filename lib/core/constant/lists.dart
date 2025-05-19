@@ -1,1 +1,1 @@
-List<String> kMainMeals = ['breakfast', 'launch', 'dinner'];
+List<String> kMainMeals = ['breakfast', 'lunch', 'dinner'];
