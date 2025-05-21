@@ -81,9 +81,13 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                     CustomButton(
                       isLoading: state is RegisterLoading,
                       onPressed: () {
-                        GoRouter.of(
-                          context,
-                        ).push(RouterNavigation.kCompleteRegisterView);
+                        if (formKey.currentState!.validate()) {
+                          BlocProvider.of<AuthCubit>(context).register(
+                            email: email!,
+                            name: userName!,
+                            password: password!,
+                          );
+                        } else {}
                       },
                       text: 'Register',
                     ),

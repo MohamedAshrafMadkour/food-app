@@ -1,28 +1,16 @@
-    {"approved_at": 1580777476,
-                    "aspect_ratio": "1:1",
-                    "beauty_url": null,
-                    "buzz_id": null,
-                    "canonical_id": "compilation:1372",
-                    "country": "US",
-                    "created_at": 1579848969,
-                    "description": null,
-                    "draft_status": "published",
-                    "facebook_posts": [],
-                    "id": 1372,
-                    "is_shoppable": false,
-                    "keywords": null,
-                    "language": "eng",
-                    "name": "Tangy & Saucy Spaghetti Recipes",
-                    "promotion": "full",
-                    "show": [
-                        {
-                            "id": 17,
-                            "name": "Tasty"
+ {
+                          "items": [
+                            {
+                              "name": "Apple",
+                              "quantity": 4,
+                              "price": "5",
+                              "currency": "USD"
+                            },
+                            {
+                              "name": "Pineapple",
+                              "quantity": 5,
+                              "price": "10",
+                              "currency": "USD"
+                            }
+                          ]
                         }
-                    ],
-                    "slug": "tangy-saucy-spaghetti-recipes",
-                    "thumbnail_alt_text": "",
-                    "thumbnail_url": "https://img.buzzfeed.com/thumbnailer-prod-us-east-1/video-api/assets/252931.jpg",
-                    "video_id": 99286,
-                    "video_url": "https://vid.tasty.co/output/158499/hls24_1579849394.m3u8"
-                }

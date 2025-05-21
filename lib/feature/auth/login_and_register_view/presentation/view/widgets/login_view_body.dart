@@ -89,14 +89,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     CustomButton(
                       isLoading: state is LoginLoading,
                       onPressed: () {
-                        // if (formKey.currentState!.validate()) {
-                        //   BlocProvider.of<AuthCubit>(
-                        //     context,
-                        //   ).login(email: email!, password: password!);
-                        // } else {
-
-                        // }
-                        GoRouter.of(context).push(RouterNavigation.kHomeView);
+                        if (formKey.currentState!.validate()) {
+                          BlocProvider.of<AuthCubit>(
+                            context,
+                          ).login(email: email!, password: password!);
+                        } else {}
                       },
                       text: 'Login',
                     ),

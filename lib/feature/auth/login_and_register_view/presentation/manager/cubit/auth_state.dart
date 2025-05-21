@@ -24,3 +24,13 @@ final class RegisterFailure extends AuthState {
 
   RegisterFailure({required this.errorMessage});
 }
+
+final class SignOutLoading extends AuthState {}
+
+final class SignOutSuccess extends AuthState {}
+
+final class SignOutFailure extends AuthState {
+  final String errorMessage;
+
+  SignOutFailure({required this.errorMessage});
+}

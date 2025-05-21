@@ -13,7 +13,7 @@ class CustomHomeViewHeaderRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text('Foodienator', style: Styles.textSemiBold22),
+        const Text('Main Meals', style: Styles.textSemiBold22),
         const SizedBox(width: 4),
         CustomIcon(
           icon: Icons.arrow_drop_down,

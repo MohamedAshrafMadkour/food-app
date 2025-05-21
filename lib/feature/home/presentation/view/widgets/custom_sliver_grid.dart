@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_app/core/widget/custom_shimmer.dart';
 import 'package:food_app/core/widget/message_error.dart';
-import 'package:food_app/feature/home/presentation/view/manager/cubit/main_food_cubit.dart';
+import 'package:food_app/feature/home/presentation/view/manager/main_food/main_food_cubit.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/home_item_food.dart';
 
 class CustomSliverGrid extends StatefulWidget {

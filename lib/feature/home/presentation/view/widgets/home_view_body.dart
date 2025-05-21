@@ -1,31 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/feature/home/presentation/view/widgets/cart_content.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/custom_home_view_body_header.dart';
 import 'package:food_app/feature/home/presentation/view/widgets/custom_home_view_header_row.dart';
-import 'package:food_app/feature/home/presentation/view/widgets/custom_sell_button.dart';
-import 'package:food_app/feature/home/presentation/view/widgets/custom_sliver_grid..dart';
+import 'package:food_app/feature/home/presentation/view/widgets/favourite_content.dart';
+import 'package:food_app/feature/home/presentation/view/widgets/home_content.dart';
 
-class HomeViewBody extends StatelessWidget {
+class HomeViewBody extends StatefulWidget {
   const HomeViewBody({super.key});
 
   @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  int currentIndex = 0;
+  Widget buildCurrentPage(int index) {
+    switch (index) {
+      case 0:
+        return const HomeContent();
+      case 1:
+        return const FavoriteContent();
+
+      case 2:
+        return const CartContent();
+      default:
+        return const Center(child: Text('Page not found'));
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            Expanded(
-              child: CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(child: CustomHomeViewHeaderRow()),
-                  SliverToBoxAdapter(child: CustomHomeViewBodyHeader()),
-                  CustomSliverGrid(),
-                ],
-              ),
+            const CustomHomeViewHeaderRow(),
+            CustomHomeViewBodyHeader(
+              onIconSelected: (index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+              currentIndex: currentIndex,
             ),
-            SizedBox(height: 20),
-            CustomSellButton(),
-            SizedBox(height: 20),
+            Expanded(child: buildCurrentPage(currentIndex)),
           ],
         ),
       ),

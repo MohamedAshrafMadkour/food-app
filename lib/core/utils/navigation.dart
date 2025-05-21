@@ -9,7 +9,9 @@ import 'package:food_app/feature/home/data/models/food_results.dart';
 import 'package:food_app/feature/home/data/repo/home_repo_impl.dart';
 import 'package:food_app/feature/home/presentation/view/details_view.dart';
 import 'package:food_app/feature/home/presentation/view/home_view.dart';
-import 'package:food_app/feature/home/presentation/view/manager/cubit/main_food_cubit.dart';
+import 'package:food_app/feature/home/presentation/view/manager/main_food/main_food_cubit.dart';
+import 'package:food_app/feature/payment/presentation/view/check_out_view.dart';
+import 'package:food_app/feature/payment/presentation/view/thank_you_view.dart';
 import 'package:food_app/feature/pop_up/data/models/tasty_api_model/tasty_api_model.dart';
 import 'package:food_app/feature/pop_up/data/repo/pop_up_impl.dart';
 import 'package:food_app/feature/pop_up/presentation/manager/cubit/meals_food_cubit.dart';
@@ -33,8 +35,10 @@ abstract class RouterNavigation {
   static const kMealDetailsView = '/mealDetailsView';
   static const kCompleteRegisterView = '/completeRegisterView';
   static const kLoginView = '/loginView';
+  static const kThanksView = '/thanksView';
   static const kBreakfastView = '/BreakfastView';
   static const kLaunchView = '/launchView';
+  static const kCheckOutView = '/checkOutView';
   static const kDinnerView = '/DinnerView';
   static const kLoginAndRegisterView = '/loginAndRegisterView';
   static final GoRouter router = GoRouter(
@@ -45,7 +49,18 @@ abstract class RouterNavigation {
           return const SplashView();
         },
       ),
-
+      GoRoute(
+        path: kThanksView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const ThankYouView(totalPrice: 0);
+        },
+      ),
+      GoRoute(
+        path: kCheckOutView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const CheckOutView();
+        },
+      ),
       GoRoute(
         path: kSearchView,
         builder: (BuildContext context, GoRouterState state) {
@@ -130,8 +145,12 @@ abstract class RouterNavigation {
         pageBuilder: (context, state) {
           return customTransitionAnimation(
             state,
-            child: BlocProvider(
-              create: (context) => MainFoodCubit(getIt<HomeRepoImpl>()),
+            child: MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => MainFoodCubit(getIt<HomeRepoImpl>()),
+                ),
+              ],
               child: const HomeView(),
             ),
           );

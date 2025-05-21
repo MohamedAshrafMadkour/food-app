@@ -41,6 +41,7 @@ class ApiService {
     return response.data;
   }
 }
+
 //https://tasty.p.rapidapi.com/recipes/list?from=0&size=10&q=$query
 //https://www.themealdb.com/api/json/v1/1/search.php?s=chicken
 //https://www.themealdb.com/api/json/v1/1/filter.php?a=Egyptian

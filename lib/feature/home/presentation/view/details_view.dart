@@ -30,7 +30,7 @@ class DetailsView extends StatelessWidget {
           ),
         ],
       ),
-      body: DetailsViewBody(food: food),
+      body: DetailsViewBody(food: food, onSumChanged: (sum) {}),
     );
   }
 }
