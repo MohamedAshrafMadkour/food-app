@@ -1,16 +1,20 @@
-# food_app
+# 🍽️ Flutter Food App
 
-A new Flutter project.
+A modern and fully functional food delivery app built with **Flutter**, featuring smooth animations, real-time search, secure payments, and user authentication. The app is built using **MVVM architecture** and **Cubit** for state management.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 🖼️ **Splash Screen** – Beautiful animated splash screen on app startup.
+- 🔐 **Firebase Authentication** – Secure login/signup using Firebase (email & password).
+- 📡 **API Integration** – Fetch food items and categories from a remote REST API.
+- 🧠 **State Management  as Cubit
+- 🧱 **MVVM Architecture** – Clean, scalable project structure using the MVVM pattern.
+- 💾 **Local Storage (Hive)** – Persistent storage for cart, favorites, and other user data.
+- 💳 **Payments Integration** – Secure payments via **Stripe** and **PayPal**.
+- 🔍 **Real-Time Search** – Instant search results as the user types.
+- ❤️ **Favorites Page** – Save and manage favorite food items.
+- 🛒 **Cart Page** – Add, update, and remove items from cart with smooth animations.
+- 🎬 **Animations** – Smooth transitions and animated UI components.
+- 💬 **Dialogs** – Custom confirmation and alert dialogs.
